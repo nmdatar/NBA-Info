@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block main %}
+
+    <div  class="container py-5 textcenter">
+        <table class= "table tablestriped">
+            <thead>
+                <tr>
+                    <th class = "table-start">Team</th>
+                    <th class = "table-start">Time</th>
+                    <th class = "table-end">Amount</th>
+                    <th class = "table-end">Game</th>
+                    <th class = "table-end">Winner</th>
+                    <th class = "table-end">Gain</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ul>
+                    {% for x in range(0, history|length) %}
+                    
+                    <tr>
+                        <th class = "table-start">{{ history[x]["team"] }}</th>
+                        <th class = "table-start">{{ history[x]["time"]}}</th>
+                        <th class = "table-end">{{ history[x]["amount"] }}</th>
+                        <th class = "table-end">{{ history[x]["game"] }}</th>
+                        <th class = "table-end">{{ history[x]["winner"] }}</th>
+                        <th class = "table-end">{{ history[x]["gain"] }}</th>
+                    </tr>
+                        
+                    {% endfor %}
+                    </ul>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

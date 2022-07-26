@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    stats
+{% endblock %}
+
+{% block main %}
+<h2>Find Recent Stats</h2>
+    <div class="container">
+        <div class="row">
+                <div class="col align-self-center">
+                    <form action="/stats" method="post">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="year" id="year">
+                            <option value="2019-2020">2019-2020</option>
+                            <option value="2020-2021">2020-2021</option>
+                            <option value="2021-2022">2021-2022</option>
+                        </select>
+                    <button class="btn btn-primary" type="submit">Go</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% if teamsN%}
+    <div  class="container py-5 textcenter">
+        <h2> Eastern Conference </h2>
+        <table class= "table tablestriped">
+            <thead>
+                <tr>
+                    <th class = "table-start">Name </th>
+                    <th class = "table-start">Place</th>
+                    <th class = "table-start">Wins</th>
+                    <th class = "table-start">Losses</th>
+                    <th class = "table-start">Percent</th>
+                    <th class = "table-start">Points scored </th>
+                    <th class = "table-start">Points let up </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <ul>
+                    {% for x in range(0, teamsS|length) %}
+                    
+                    <tr>
+                        <th class = "table-start">{{ teamsS[x]["name"] }}</th>
+                        <th class = "table-end">{{ teamsS[x]["position"] }}</th>
+                        <th class = "table-end">{{ teamsS[x]["wins"] }}</th>
+                        <th class = "table-end">{{ teamsS[x]["losses"] }}</th>
+                        <th class = "table-end">{{ teamsS[x]["win%"] }}</th>
+                        <th class = "table-end">{{ teamsS[x]["pointsfor"] }}</th>
+                        <th class = "table-end">{{ teamsS[x]["pointsagainst"] }}</th>
+                        
+                    </tr>
+                        
+                    {% endfor %}
+            </tbody>
+        </table>
+        <h2> Western Confrence </h2>
+        <table class= "table tablestriped">
+            <thead>
+                <tr>
+                    <th class = "table-start">Name </th>
+                    <th class = "table-start">Place</th>
+                    <th class = "table-start">Wins</th>
+                    <th class = "table-start">Losses</th>
+                    <th class = "table-start">Percent</th>
+                    <th class = "table-start">Points scored </th>
+                    <th class = "table-start">Points let up </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <ul>
+                    {% for x in range(0, teamsN|length) %}
+                    
+                    <tr>
+                        <th class = "table-start">{{ teamsN[x]["name"] }}</th>
+                        <th class = "table-end">{{ teamsN[x]["position"] }}</th>
+                        <th class = "table-end">{{ teamsN[x]["wins"] }}</th>
+                        <th class = "table-end">{{ teamsN[x]["losses"] }}</th>
+                        <th class = "table-end">{{ teamsN[x]["win%"] }}</th>
+                        <th class = "table-end">{{ teamsN[x]["pointsfor"] }}</th>
+                        <th class = "table-end">{{ teamsN[x]["pointsagainst"] }}</th>
+                        
+                    </tr>
+                        
+                    {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% endblock %}

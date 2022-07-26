@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    addcash
+{% endblock %}
+
+{% block main %}
+
+{% if yes == 1%}
+    <div class=alert style="color:green">
+        <p> Cash added! </p>
+    </div>
+{% endif %}
+{% if yes == 2%}
+    <div class=alert style="color:green">
+        <p> Cash Withdrawn! </p>
+    </div>
+{% endif %}
+{% if error == 1%}
+    <div class="alert" style="color:red">
+        <p> Please Input Amount! </p>
+    </div>
+{% endif %}
+{% if error == 2%}
+    <div class="alert" style="color:red">
+        <p> You can't have negtive money! </p>
+    </div>
+{% endif %}
+
+    <div class="container">
+        <p style="font-size: 26px"> Your available cash is {{cash | usd}}</p>
+        <p style="font-size: 26px"> Would you like to input more cash?</p>
+    </div>
+    <form action="/addcash" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="amount" name="amount" placeholder="Amount" type="number" min = 1>
+        </div>
+        <button class="btn btn-primary" type="submit"> Add! </button>
+    </form>
+
+
+    <div class="container">
+        <p style="font-size: 26px"> You can also withdraw your money</p>
+        <p style="font-size: 26px"> Would you like to withdraw any?</p>
+    </div>
+
+    <form action="/addcash" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="withdraw" name="withdraw" placeholder="Amount" type="number" min = 1>
+        </div>
+        <button class="btn btn-primary" type="submit"> Withdraw! </button>
+    </form>
+
+
+{% endblock %}

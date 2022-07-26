@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    games
+{% endblock %}
+
+{% block main %}
+
+<h2> Choose what team you would like to bet on. Favorites are listed  first and bolded.</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col align-self-center">
+                <form action="/bet" method="post">
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="team" id="team"> 
+                        <option style="display:none">Select One</option>
+                        {% for x in range(0, games|length) %}
+                            <option value= "{{games[x]['prediction']}}" class='bolden'> {{ games[x]["prediction"] }}</option>
+                            <option value="{{games[x]['underdog']}}"> {{games[x]["underdog"]}}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="mb-3">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="amount" name="amount" placeholder="amount" type="number">
+                        {% if error == 1%}
+                            <p style="color:red"> Please pick a team </p>
+                        {% endif %}
+                        {% if error == 2%}
+                            <p style="color:red"> Please put an amount </p>
+                        {% endif %}
+                        {% if error == 3%}
+                            <p style="color:red"> You don't have that much money </p>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3"> 
+                        <button class="btn btn-primary" type="submit">Go</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <p style="font-size: 26px"> Your available cash is {{cash | usd}}</p>
+    </div>
+
+{% endblock %}

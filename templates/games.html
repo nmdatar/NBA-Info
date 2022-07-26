@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    games
+{% endblock %}
+
+{% block main %}
+<h2>Find Recent Games</h2>
+<form action="/games" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="daychange" name="daychange" placeholder="Days From Today" type="number">
+        {% if error == 1%}
+            <label for="daychange" style="color:red"> Please Input Days From Today </label>
+        {% endif %}
+    </div>  
+    <button class="btn btn-primary" type="submit">Go</button>
+</form>
+
+    {% if games %}
+        <div  class="container py-5 textcenter">
+            <table class= "table tablestriped">
+                <thead>
+                    <tr>
+                        <th class = "table-start">Home</th>
+                        <th class = "table-end">Home score</th>
+                        <th class = "table-end">Away score</th>
+                        <th class = "table-start">Away</th>
+                        <th class = "table-start">Prediction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ul>
+                        {% for x in range(0, games|length) %}
+                        
+                        <tr>
+                            <th class = "table-start">{{ games[x]["home"] }}</th>
+                            <th class = "table-start">{{ games[x]["scorehome"] }}</th>
+                            <th class = "table-end">{{ games[x]["scoreaway"] }}</th>
+                            <th class = "table-end">{{ games[x]["away"] }}</th>
+                            <th class = "table-end">{{ games[x]["prediction"] }}</th>
+                        </tr>
+                            
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <form action="/bet" method="get">
+            <input type="submit" value="Bet on Games Listed Above">
+        </form>
+    {% endif %}
+{% endblock %}

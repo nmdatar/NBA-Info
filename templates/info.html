@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    info
+{% endblock %}
+
+{% block main %}
+    <div class="info">
+        <h1> Welcome! </h1>
+
+        <h2> What is this site?  </h2>
+        <p>
+            This site lets you view past, present and future games. You can also view
+            the odds for the game and bet on who you think will win. This number will be zero if you lost or the amount you bet 
+            multiplied by 2 if the team was an underdog and 0.05 if the team was the favorite. 
+            Have fun betting! 
+        </p>
+    </div>
+
+    <h2 class=team> Who made this site? </h2>
+
+    <div class="row">
+        <div class="column center">
+          <div class="card">
+            <img src='/static/keeganheadshot2021.jpg' alt="keegan" style="width:100%">
+            <div class="container">
+              <h2>Keegan Harkavy</h2>
+              <p class="title">Builder</p>
+              <p>Keegan Harkavy is a Freshman in Mathews. He enjoys running, hiking and reading. 
+                  He is not sure what he wants to study but has a passion for problem solving. 
+                  This is the first full website he has built. </p>
+              <p>kharkavy@college.harvard.edu</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column center">
+            <div class="card">
+              <img src='/static/nikhil.jpeg' alt="nikhil" style="width:100%">
+              <div class="container">
+                <h2>Nikhil Datar</h2>
+                <p class="title">Builder</p>
+                <p> 
+                    Nikhil Datar is a Freshman in Mathews. He enjoys chess, listening to music and video games. 
+                    He currently plans to study computer science but is not positive. This is the first full website 
+                    he has built.
+                </p>
+                <p>ndatar@college.harvard.edu</p>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

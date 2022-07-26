@@ -17,6 +17,8 @@ from helpers import apology, login_required, lookup, usd
 # Configure application
 app = Flask(__name__)
 
+api_key = os.environ.get('NBA-Info API Key')
+
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
@@ -65,7 +67,7 @@ def stats():
 
         headers = {
             'x-rapidapi-host': "api-basketball.p.rapidapi.com",
-            'x-rapidapi-key': "2591224834msh59c35823a966b16p1920e7jsn9f7223ef13eb"
+            'x-rapidapi-key': api_key
         }
 
         response = requests.request("GET", url, headers=headers, params=querystring)
@@ -124,7 +126,7 @@ def games():
 
         headers = {
             'x-rapidapi-host': "api-basketball.p.rapidapi.com",
-            'x-rapidapi-key': "2591224834msh59c35823a966b16p1920e7jsn9f7223ef13eb"
+            'x-rapidapi-key': api_key
         }
 
         # Get response after requesting API
@@ -148,7 +150,7 @@ def games():
 
         headers = {
             'x-rapidapi-host': "api-basketball.p.rapidapi.com",
-            'x-rapidapi-key': "2591224834msh59c35823a966b16p1920e7jsn9f7223ef13eb"
+            'x-rapidapi-key': api_key
         }
         # Request API
         response = requests.request("GET", url, headers=headers, params=querystring)

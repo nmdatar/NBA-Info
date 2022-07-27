@@ -1,3 +1,5 @@
+# NBA Info
+
 Check out a demo [here](https://www.youtube.com/watch?v=kDU5XLMuY1g)
 
 This project was implemented in the CS50 codespace. In this project, several languages were used; however, our project requires the use of the Flask library within Python to locally host the application. 

@@ -1,5 +1,5 @@
-https://www.youtube.com/watch?v=kDU5XLMuY1g - youtube
-'
+Check out a demo [here](https://www.youtube.com/watch?v=kDU5XLMuY1g)
+
 This project was implemented in the CS50 codespace. In this project, several languages were used; however, our project requires the use of the Flask library within Python to locally host the application. 
 
 We need to open the application to be able to use it. To do so, we must first perform several several steps. First, once the projects directory has been downloaded, open it in the CS50 codespace. Open a new terminal by clicking the three bars on the top left of the codespace - "Application Menu", followed by "Terminal" and "New Terminal". Then, in the terminal, enter the command "cd", followed by "cd project" in order to enter the project directory. Then, in the terminal, enter the command "flask run", which will bring up a blue button to open the website in a new port on the bottom right of the screen, saying "Open in Browser". Click this button, and the application will launch to the login page. Nice, you've successfully compiled and configured the application.
